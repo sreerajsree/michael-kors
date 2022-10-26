@@ -1,14 +1,18 @@
-import React from "react";
+import {useState} from "react";
 import {
   HiOutlineSearch,
   HiOutlineLocationMarker,
   HiOutlineUser,
   HiOutlineShoppingBag,
 } from "react-icons/hi";
+import {GrClose} from "react-icons/gr"
 import NavBar from "./NavBar";
 import { GiHamburgerMenu } from "react-icons/gi";
+import ResNav from "./ResNav";
 
 const Header = () => {
+  const [open, setOpen] = useState(true)
+  
   return (
     <>
       <div className="hidden md:block border-b border-black/30 sticky top-0 left-0 z-50 bg-white">
@@ -87,9 +91,14 @@ const Header = () => {
         </header>
         <NavBar />
       </div>
-      <div className="bg-white p-3 flex items-center justify-between sticky top-0 left-0 z-50 md:hidden">
+      <div className="bg-white p-3 border-b border-black/20 flex items-center justify-between fixed w-full top-0 left-0 z-50 md:hidden">
         <div className="w-[50px]">
-          <GiHamburgerMenu className="w-6 h-6" />
+          {
+            open ? <GiHamburgerMenu onClick={()=>setOpen(false)} className="w-6 h-6" /> : <GrClose onClick={()=>setOpen(true)} className="w-6 h-6" />
+          }
+         {
+          !open ? <ResNav/> : null
+         }
         </div>
         <div>
           <img src="/logo_mk.webp" alt="Michael Kors Logo" className="h-4" />
