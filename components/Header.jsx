@@ -87,7 +87,7 @@ const Header = () => {
         </header>
         <NavBar />
       </div>
-      <div className="bg-white p-3 flex items-center justify-between sticky top-0 left-0 z-50">
+      <div className="bg-white p-3 flex items-center justify-between sticky top-0 left-0 z-50 md:hidden">
         <div className="w-[50px]">
           <GiHamburgerMenu className="w-6 h-6" />
         </div>
